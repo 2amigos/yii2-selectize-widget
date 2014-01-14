@@ -25,7 +25,7 @@ class Selectize extends InputWidget
 	/**
 	 * @var string the theme to use to render the widget
 	 */
-	public $bundleClass = 'dosamigos\widgets\SelectizeBootstrap3Asset';
+	public $theme = 'dosamigos\widgets\SelectizeBootstrap3Asset';
 	/**
 	 * @var array $items the option data items. If this value is not empty, [[Selectize]] will assume that requires to
 	 * render a 'select' box.
