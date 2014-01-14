@@ -14,11 +14,15 @@ use yii\web\AssetBundle;
  * @link http://www.2amigos.us/
  * @package dosamigos\yii2\widgets
  */
-class SelectizeBootstrapTwoAsset extends AssetBundle
+class SelectizeBootstrap3Asset extends AssetBundle
 {
 	public $sourcePath = '@vendor/2amigos/selectize.js/dist/css';
 
 	public $css = [
-		'selectize.bootstrap2.css'
+		'selectize.bootstrap3.css'
+	];
+
+	public $depends = [
+		'yii\bootstrap\BootstrapAsset'
 	];
 }
