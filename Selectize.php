@@ -9,11 +9,12 @@ namespace dosamigos\widgets;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\helpers\Json;
+use yii\web\JsExpression;
 use yii\widgets\InputWidget;
 
 /**
  *
- * SelectizeInput renders a text input Selectize.js widget plugin. Selectize.js is the hybrid of textbox and select box.
+ * Selectize renders a text input Selectize.js widget plugin. Selectize.js is the hybrid of textbox and select box.
  *
  * @author Antonio Ramirez <amigo.cobos@gmail.com>
  * @link http://www.ramirezcobos.com/
@@ -25,10 +26,10 @@ class Selectize extends InputWidget
 	/**
 	 * @var string the theme to use to render the widget
 	 */
-	public $theme = 'dosamigos\widgets\SelectizeBootstrap3Asset';
+	public $bundleClass = 'common\extensions\dosamigos\yii2\widgets\SelectizeBootstrapAsset';
 	/**
 	 * @var array $items the option data items. If this value is not empty, [[Selectize]] will assume that requires to
-	 * render a 'select' box.
+	 * render a 'select' box. If you wish to force this behavior, set the [[$tag]] type to input.
 	 */
 	public $items = [];
 	/**
@@ -43,6 +44,15 @@ class Selectize extends InputWidget
 	 * Web page for possible events.
 	 */
 	public $clientEvents = [];
+	/**
+	 * @var string the URL where to get the new options to be loaded into the plugin. This attribute is for basic
+	 * usage of the `load` configuration option of the plugin. For a more advanced usage of the `load` option, please
+	 * refer to the [Selectize usage documentation](https://github.com/brianreavis/selectize.js/blob/master/docs/usage.md)
+	 * The URL will receive a parameter "q" set with the value that should be use to query and build datasets.
+	 * It is also important to note, that [[$sourceUrl]] must call an action that will return formatted datasets as
+	 * specified on [Selectize](https://github.com/brianreavis/selectize.js/blob/master/docs/usage.md#data_searching)
+	 */
+	public $sourceUrl;
 
 
 	/**
@@ -66,7 +76,7 @@ class Selectize extends InputWidget
 			if ($this->hasModel()) {
 				echo Html::activeDropDownList($this->model, $this->attribute, $this->items, $this->options);
 			} else {
-				echo Html::dropDownList($this->name, $this->value , $this->items, $this->options);
+				echo Html::dropDownList($this->name, $this->value, $this->items, $this->options);
 			}
 		} else {
 			if ($this->hasModel()) {
@@ -84,17 +94,14 @@ class Selectize extends InputWidget
 	protected function registerPlugin()
 	{
 		$view = $this->getView();
-		if($this->bundleClass !== null)
-		{
+		if ($this->bundleClass !== null) {
 			call_user_func([$this->bundleClass, 'register'], $view);
 		}
 		SelectizePluginAsset::register($view);
 
 		$id = $this->options['id'];
 
-		$options = $this->clientOptions !== false && !empty($this->clientOptions)
-			? Json::encode($this->clientOptions)
-			: '';
+		$options = $this->getOptions();
 
 		$js = "jQuery('#$id').selectize($options);";
 		$view->registerJs($js);
@@ -106,5 +113,24 @@ class Selectize extends InputWidget
 			}
 			$view->registerJs(implode("\n", $js));
 		}
+	}
+
+	/**
+	 * @return array of options
+	 */
+	protected function getOptions()
+	{
+		if ($this->clientOptions !== false) {
+			if ($this->sourceUrl !== null) {
+				$this->clientOptions['load'] = new JsExpression("function(query, callback){
+				if(!query.length) return callback();
+				$.get('{$this->sourceUrl}',{q:encodeURIComponent(query)}, function(data){callback(data);})
+				.fail(function(){callback();});}");
+			}
+			return !empty($this->clientOptions)
+				? Json::encode($this->clientOptions)
+				: '';
+		}
+		return '';
 	}
 }
