@@ -11,16 +11,9 @@
             "homepage": "http://2amigos.us"
         }
     ],
-    "repositories":[
-        {
-            "type": "git",
-            "url":"https://github.com/2amigos/selectize.js.git",
-            "vendor-alias": "2amigos"
-        }
-    ],
     "require": {
         "yiisoft/yii2": "*",
-        "2amigos/selectize.js" : "*"
+        "brianreavis/selectize.js" : "*"
     },
     "autoload": {
         "psr-4": {
