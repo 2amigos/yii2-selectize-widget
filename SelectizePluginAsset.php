@@ -15,7 +15,7 @@ use yii\web\AssetBundle;
  */
 class SelectizePluginAsset extends AssetBundle
 {
-	public $sourcePath = '@vendor/2amigos/selectize.js/dist/js';
+	public $sourcePath = '@vendor/brianreavis/selectize.js/dist/js';
 
 	public $js = [
 		'standalone/selectize.js'
