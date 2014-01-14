@@ -6,6 +6,7 @@
  */
 namespace dosamigos\widgets;
 
+use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\helpers\Json;
 use yii\widgets\InputWidget;
@@ -22,34 +23,14 @@ use yii\widgets\InputWidget;
 class Selectize extends InputWidget
 {
 	/**
-	 * Default theme
-	 */
-	const THEME_DEFAULT = 'default';
-	/**
-	 * Legacy theme
-	 */
-	const THEME_LEGACY = 'legacy';
-	/**
-	 * Theme Bootstrap 2
-	 */
-	const THEME_BOOTSTRAP_TWO = 'bootstrap2';
-	/**
-	 * Theme Bootstrap 3
-	 */
-	const THEME_BOOTSTRAP_THREE = 'bootstrap3';
-	/**
 	 * @var string the theme to use to render the widget
 	 */
-	public $theme = self::THEME_DEFAULT;
+	public $bundleClass = 'dosamigos\widgets\SelectizeBootstrap3Asset';
 	/**
 	 * @var array $items the option data items. If this value is not empty, [[Selectize]] will assume that requires to
 	 * render a 'select' box. If you wish to force this behavior, set the [[$tag]] type to input.
 	 */
 	public $items = [];
-	/**
-	 * @var string $tag . Possible values are "input" or "select". Defaults to "input".
-	 */
-	public $tag = 'input';
 	/**
 	 * @var array the options for the Selectize JS plugin.
 	 * Please refer to the Selectize plugin Web page for possible options.
@@ -70,10 +51,7 @@ class Selectize extends InputWidget
 	public function init()
 	{
 		if (!empty($this->items)) {
-			$this->tag = 'select';
-		}
-		if (!in_array($this->tag, ['input', 'select'])) {
-			$this->tag = 'input';
+			$this->options['tag'] = 'select';
 		}
 		parent::init();
 	}
@@ -83,15 +61,16 @@ class Selectize extends InputWidget
 	 */
 	public function run()
 	{
-		if ($this->hasModel()) {
-			if ($this->tag == 'select') {
+		$tag = ArrayHelper::remove($this->options, 'tag', 'input');
+		if ($tag == 'select') {
+			if ($this->hasModel()) {
 				echo Html::activeDropDownList($this->model, $this->attribute, $this->items, $this->options);
 			} else {
-				echo Html::activeTextInput($this->model, $this->attribute, $this->options);
+				echo Html::dropDownList($this->name, $this->value , $this->items, $this->options);
 			}
 		} else {
-			if ($this->tag == 'select') {
-				echo Html::dropDownList($this->name, $this->value , $this->items, $this->options);
+			if ($this->hasModel()) {
+				echo Html::activeTextInput($this->model, $this->attribute, $this->options);
 			} else {
 				echo Html::textInput($this->name, $this->value, $this->options);
 			}
@@ -105,19 +84,9 @@ class Selectize extends InputWidget
 	protected function registerPlugin()
 	{
 		$view = $this->getView();
-		switch ($this->theme) {
-			case static::THEME_DEFAULT:
-				SelectizeAsset::register($view);
-				break;
-			case static::THEME_LEGACY:
-				SelectizeLegacyAsset::register($view);
-				break;
-			case static::THEME_BOOTSTRAP_TWO:
-				SelectizeBootstrapTwoAsset::register($view);
-				break;
-			case static::THEME_BOOTSTRAP_THREE:
-				SelectizeBootstrapAsset::register($view);
-				break;
+		if($this->bundleClass !== null)
+		{
+			call_user_func([$this->bundleClass, 'register'], $view);
 		}
 		SelectizePluginAsset::register($view);
 
