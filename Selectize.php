@@ -95,7 +95,7 @@ class Selectize extends InputWidget
 	{
 		$view = $this->getView();
 		if ($this->theme !== null) {
-			call_user_func([$this->bundleClass, 'register'], $view);
+			call_user_func([$this->theme, 'register'], $view);
 		}
 		SelectizePluginAsset::register($view);
 
