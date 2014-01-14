@@ -28,7 +28,7 @@ class Selectize extends InputWidget
 	public $bundleClass = 'dosamigos\widgets\SelectizeBootstrap3Asset';
 	/**
 	 * @var array $items the option data items. If this value is not empty, [[Selectize]] will assume that requires to
-	 * render a 'select' box. If you wish to force this behavior, set the [[$tag]] type to input.
+	 * render a 'select' box.
 	 */
 	public $items = [];
 	/**
