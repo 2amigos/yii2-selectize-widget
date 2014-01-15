@@ -6,7 +6,6 @@
  */
 namespace dosamigos\widgets;
 
-use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\helpers\Json;
 use yii\web\JsExpression;
@@ -76,7 +75,7 @@ class Selectize extends InputWidget
 		$themeAsset::register($view);
 		SelectizePluginAsset::register($view);
 		$options = $this->getOptions();
-		$id = $options['id'];
+		$id = $this->options['id'];
 		$js = "jQuery('#$id').selectize($options);";
 		$view->registerJs($js);
 		if (!empty($this->clientEvents)) {
