@@ -1,8 +1,8 @@
 <?php
 /**
+ * @link https://github.com/2amigos/yii2-selectize-widget
  * @copyright Copyright (c) 2013 2amigOS! Consulting Group LLC
- * @link http://2amigos.us
- * @license http://www.opensource.org/licenses/bsd-license.php New BSD License
+ * @license http://opensource.org/licenses/BSD-3-Clause
  */
 namespace dosamigos\widgets;
 
@@ -13,35 +13,33 @@ use yii\web\JsExpression;
 use yii\widgets\InputWidget;
 
 /**
- *
- * Selectize renders a text input Selectize.js widget plugin. Selectize.js is the hybrid of textbox and select box.
+ * Selectize renders a text input Selectize.js plugin widget. Selectize.js is the hybrid of textbox and select box.
  *
  * @author Antonio Ramirez <amigo.cobos@gmail.com>
  * @link http://www.ramirezcobos.com/
  * @link http://www.2amigos.us/
- * @package dosamigos\widgets
  */
 class Selectize extends InputWidget
 {
 	/**
-	 * @var string the theme to use to render the widget
+	 * @var string the Selectize.js theme. This refers to an asset bundle class
+	 * representing the Selectize.js theme. The default theme is the official "Bootstrap3" theme.
 	 */
-	public $theme = 'dosamigos\widgets\SelectizeBootstrap3Asset';
+	public static $theme = 'dosamigos\widgets\SelectizeBootstrap3Asset';
 	/**
-	 * @var array $items the option data items. If this value is not empty, [[Selectize]] will assume that requires to
-	 * render a 'select' box. If you wish to force this behavior, set the [[$tag]] type to input.
+	 * @var array $items the option data items.
 	 */
 	public $items = [];
 	/**
-	 * @var array the options for the Selectize JS plugin.
-	 * Please refer to the Selectize plugin Web page for possible options.
+	 * @var array the options for the Selectize.js plugin.
+	 * Please refer to the Selectize.js plugin web page for possible options.
 	 * @see https://github.com/brianreavis/selectize.js/blob/master/docs/usage.md#options
 	 */
 	public $clientOptions = [];
 	/**
-	 * @var array the event handlers for the underlying Selectize JS plugin.
-	 * Please refer to the [Selectize](https://github.com/brianreavis/selectize.js/blob/master/docs/events.md#list-of-events) plugin
-	 * Web page for possible events.
+	 * @var array the event handlers for the underlying Selectize.js plugin.
+	 * Please refer to the Selectize.js plugin web page for possible options.
+	 * @see https://github.com/brianreavis/selectize.js/blob/master/docs/events.md#list-of-events
 	 */
 	public $clientEvents = [];
 	/**
@@ -54,16 +52,15 @@ class Selectize extends InputWidget
 	 */
 	public $sourceUrl;
 
-
 	/**
 	 * @inheritdoc
 	 */
 	public function init()
 	{
-		if (!empty($this->items)) {
-			$this->options['tag'] = 'select';
-		}
 		parent::init();
+		if (!isset($this->options['id'])) {
+			$this->options['id'] = $this->getId();
+		}
 	}
 
 	/**
@@ -71,19 +68,10 @@ class Selectize extends InputWidget
 	 */
 	public function run()
 	{
-		$tag = ArrayHelper::remove($this->options, 'tag', 'input');
-		if ($tag == 'select') {
-			if ($this->hasModel()) {
-				echo Html::activeDropDownList($this->model, $this->attribute, $this->items, $this->options);
-			} else {
-				echo Html::dropDownList($this->name, $this->value, $this->items, $this->options);
-			}
+		if ($this->hasModel()) {
+			echo Html::activeDropDownList($this->model, $this->attribute, $this->items, $this->options);
 		} else {
-			if ($this->hasModel()) {
-				echo Html::activeTextInput($this->model, $this->attribute, $this->options);
-			} else {
-				echo Html::textInput($this->name, $this->value, $this->options);
-			}
+			echo Html::dropDownList($this->name, $this->value, $this->items, $this->options);
 		}
 		$this->registerPlugin();
 	}
@@ -94,18 +82,14 @@ class Selectize extends InputWidget
 	protected function registerPlugin()
 	{
 		$view = $this->getView();
-		if ($this->theme !== null) {
-			call_user_func([$this->theme, 'register'], $view);
-		}
+		/** @var \yii\web\AssetBundle $themeAsset */
+		$themeAsset = static::$theme;
+		$themeAsset::register($view);
 		SelectizePluginAsset::register($view);
-
-		$id = $this->options['id'];
-
 		$options = $this->getOptions();
-
+		$id = $options['id'];
 		$js = "jQuery('#$id').selectize($options);";
 		$view->registerJs($js);
-
 		if (!empty($this->clientEvents)) {
 			$js = [];
 			foreach ($this->clientEvents as $event => $handler) {
