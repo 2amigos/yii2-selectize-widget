@@ -1,7 +1,7 @@
 {
 	"name": "2amigos/yii2-selectize-widget",
 	"description": "Selectize.js widget for Yii2.",
-	"keywords": ["yii", "extension", "widget", "selectize"],
+	"keywords": ["extension", "Widget", "selectize", "yii"],
 	"homepage": "https://github.com/2amigos/yii2-selectize-widget",
 	"type": "yii2-extension",
 	"license": "BSD-3-Clause",
