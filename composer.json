@@ -1,23 +1,24 @@
 {
-    "name": "2amigos/yii2-selectize-widget",
-    "description": "Selectize.js widget for Yii2.",
-    "keywords": ["widget", "yii", "selectize", "dropdown", "bootstrap", "plugin", "input"],
-    "type": "yii2-extension",
-    "license": "BSD-3-Clause",
-    "authors": [
-        {
-            "name": "Antonio Ramirez",
-            "email": "ramirez.cobos@gmail.com",
-            "homepage": "http://2amigos.us"
-        }
-    ],
-    "require": {
-        "yiisoft/yii2": "*",
-        "brianreavis/selectize.js" : "*"
-    },
-    "autoload": {
-        "psr-4": {
-            "dosamigos\\widgets\\": ""
-        }
-    }
+	"name": "2amigos/yii2-selectize-widget",
+	"description": "Selectize.js widget for Yii2.",
+	"keywords": ["yii", "extension", "widget", "selectize"],
+	"homepage": "https://github.com/2amigos/yii2-selectize-widget",
+	"type": "yii2-extension",
+	"license": "BSD-3-Clause",
+	"authors": [
+		{
+			"name": "Antonio Ramirez",
+			"email": "ramirez.cobos@gmail.com",
+			"homepage": "http://2amigos.us"
+		}
+	],
+	"require": {
+		"yiisoft/yii2": "*",
+		"brianreavis/selectize.js": "*"
+	},
+	"autoload": {
+		"psr-4": {
+			"dosamigos\\widgets\\": ""
+		}
+	}
 }

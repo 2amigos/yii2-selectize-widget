@@ -1,4 +1,4 @@
-Selectize.js Widget for Yii2
+Selectize.js widget for Yii2
 ==============================
 
 Renders a [Selectize.js plugin](http://brianreavis.github.io/selectize.js/) widget.
@@ -37,13 +37,13 @@ use yii\web\JsExpression;
         'persist' => false,
         'create' => new JsExpression('function(input){
             return {value: input, text: input};
-        }')
+        }'),
     ]
 ]);?>
 ```
 Selectize.js has lots of configuration options. For further information, please check the
 [Selectize.js plugin](http://brianreavis.github.io/selectize.js/) website.
 
-> [![2amigOS!](http://www.gravatar.com/avatar/55363394d72945ff7ed312556ec041e0.png)](http://www.2amigos.us)   
-<i>web development has never been so fun</i>   
+> [![2amigOS!](http://www.gravatar.com/avatar/55363394d72945ff7ed312556ec041e0.png)](http://www.2amigos.us)
+<i>web development has never been so fun</i>
 [www.2amigos.us](http://www.2amigos.us)
