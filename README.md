@@ -10,12 +10,12 @@ The preferred way to install this extension is through [composer](http://getcomp
 Either run
 
 ```
-php composer.phar require 2amigos/yii2-selectize-widget "1.0.*"
+php composer.phar require 2amigos/yii2-selectize-widget "*"
 ```
 or add
 
 ```json
-"2amigos/yii2-selectize-widget" : "1.0.*"
+"2amigos/yii2-selectize-widget" : "*"
 ```
 
 to the require section of your application's `composer.json` file.
