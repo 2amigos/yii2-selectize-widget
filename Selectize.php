@@ -55,17 +55,6 @@ class Selectize extends InputWidget
 	/**
 	 * @inheritdoc
 	 */
-	public function init()
-	{
-		parent::init();
-		if (!isset($this->options['id'])) {
-			$this->options['id'] = $this->getId();
-		}
-	}
-
-	/**
-	 * @inheritdoc
-	 */
 	public function run()
 	{
 		if ($this->hasModel()) {
