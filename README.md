@@ -25,7 +25,7 @@ Usage
 Using a model:
 
 ```
-use dosamigos\yii2\widgets\Selectize;
+use dosamigos\selectize\Selectize;
 use yii\web\JsExpression;
 
 <?= Selectize::widget([
@@ -39,11 +39,11 @@ use yii\web\JsExpression;
             return {value: input, text: input};
         }'),
     ]
-]);?>
+]) ?>
 ```
 Selectize.js has lots of configuration options. For further information, please check the
 [Selectize.js plugin](http://brianreavis.github.io/selectize.js/) website.
 
-> [![2amigOS!](http://www.gravatar.com/avatar/55363394d72945ff7ed312556ec041e0.png)](http://www.2amigos.us)
-<i>Web development has never been so fun!</i>
+> [![2amigOS!](http://www.gravatar.com/avatar/55363394d72945ff7ed312556ec041e0.png)](http://www.2amigos.us)  
+<i>web development has never been so fun</i>  
 [www.2amigos.us](http://www.2amigos.us)

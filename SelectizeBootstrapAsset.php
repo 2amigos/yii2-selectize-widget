@@ -13,12 +13,12 @@ use yii\web\AssetBundle;
  * @link http://www.ramirezcobos.com/
  * @link http://2amigos.us/
  */
-class SelectizeLegacyAsset extends AssetBundle
+class SelectizeBootstrapAsset extends AssetBundle
 {
 	public $sourcePath = '@vendor/brianreavis/selectize.js/dist';
 
 	public $css = [
-		'css/selectize.legacy.css',
+		'css/selectize.bootstrap3.css',
 	];
 
 	public $js = [
@@ -26,6 +26,7 @@ class SelectizeLegacyAsset extends AssetBundle
 	];
 
 	public $depends = [
+		'yii\bootstrap\BootstrapAsset',
 		'yii\web\JqueryAsset',
 	];
 }
