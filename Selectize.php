@@ -26,9 +26,9 @@ class Selectize extends InputWidget
 	 */
 	public static $theme = 'dosamigos\selectize\SelectizeBootstrapAsset';
 	/**
-	 * @var array $items the option data items.
+	 * @var array|null $items the option data items.
 	 */
-	public $items = [];
+	public $items;
 	/**
 	 * @var array|string the URL where to get the new options to be loaded into the plugin. This attribute is for basic
 	 * usage of the `load` configuration option of the plugin. For a more advanced usage of the `load` option, please
@@ -57,9 +57,17 @@ class Selectize extends InputWidget
 	public function run()
 	{
 		if ($this->hasModel()) {
-			echo Html::activeDropDownList($this->model, $this->attribute, $this->items, $this->options);
+			if ($this->items === null) {
+				echo Html::activeTextInput($this->model, $this->attribute, $this->options);
+			} else {
+				echo Html::activeDropDownList($this->model, $this->attribute, $this->items, $this->options);
+			}
 		} else {
-			echo Html::dropDownList($this->name, $this->value, $this->items, $this->options);
+			if ($this->items === null) {
+				echo Html::dropDownList($this->name, $this->value, $this->items, $this->options);
+			} else {
+				echo Html::textInput($this->name, $this->value, $this->options);
+			}
 		}
 
 		$view = $this->getView();
