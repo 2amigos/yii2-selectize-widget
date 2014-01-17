@@ -25,7 +25,7 @@ Usage
 Using a model:
 
 ```
-use dosamigos\yii2\widgets\Selectize;
+use dosamigos\selectize\Selectize;
 use yii\web\JsExpression;
 
 <?= Selectize::widget([
