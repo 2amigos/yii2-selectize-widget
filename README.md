@@ -39,7 +39,7 @@ use yii\web\JsExpression;
             return {value: input, text: input};
         }'),
     ]
-]);?>
+]) ?>
 ```
 Selectize.js has lots of configuration options. For further information, please check the
 [Selectize.js plugin](http://brianreavis.github.io/selectize.js/) website.
