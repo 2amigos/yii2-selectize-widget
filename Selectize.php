@@ -7,6 +7,7 @@
 namespace dosamigos\selectize;
 
 use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\helpers\Json;
 use yii\web\JsExpression;
 use yii\widgets\InputWidget;
@@ -79,7 +80,7 @@ class Selectize extends InputWidget
 		$id = $this->options['id'];
 
 		if ($this->url !== null) {
-			$url = Html::url($this->url);
+			$url = Url::to($this->url);
 			$this->clientOptions['load'] = new JsExpression("
 function (query, callback) {
 	if (!query.length) return callback();
