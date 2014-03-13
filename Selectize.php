@@ -65,9 +65,9 @@ class Selectize extends InputWidget
 			}
 		} else {
 			if ($this->items === null) {
-				echo Html::dropDownList($this->name, $this->value, $this->items, $this->options);
-			} else {
 				echo Html::textInput($this->name, $this->value, $this->options);
+			} else {
+				echo Html::dropDownList($this->name, $this->value, $this->items, $this->options);
 			}
 		}
 
