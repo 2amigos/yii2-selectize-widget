@@ -35,9 +35,7 @@ use yii\web\JsExpression;
         'delimiter' => ',',
         'plugins' => ['remove_button'],
         'persist' => false,
-        'create' => new JsExpression('function(input) {
-            return {value: input, text: input};
-        }'),
+        'create' => new JsExpression("function(input) { return { value: input, text: input }; }"),
     ]
 ]) ?>
 ```
