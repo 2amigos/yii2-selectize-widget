@@ -36,7 +36,7 @@ use yii\web\JsExpression;
         'plugins' => ['remove_button'],
         'persist' => false,
         'create' => new JsExpression("function(input) { return { value: input, text: input }; }"),
-    ]
+    ],
 ]) ?>
 ```
 Selectize.js has lots of configuration options. For further information, please check the
