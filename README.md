@@ -42,6 +42,6 @@ use yii\web\JsExpression;
 Selectize.js has lots of configuration options. For further information, please check the
 [Selectize.js plugin](http://brianreavis.github.io/selectize.js/) website.
 
-> [![2amigOS!](http://www.gravatar.com/avatar/55363394d72945ff7ed312556ec041e0.png)](http://www.2amigos.us)
-<i>Web development has never been so fun!</i>
+> [![2amigOS!](http://www.gravatar.com/avatar/55363394d72945ff7ed312556ec041e0.png)](http://www.2amigos.us)  
+<i>Web development has never been so fun!</i>  
 [www.2amigos.us](http://www.2amigos.us)
