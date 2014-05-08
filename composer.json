@@ -10,12 +10,16 @@
 			"name": "Antonio Ramirez",
 			"email": "ramirez.cobos@gmail.com",
 			"homepage": "http://2amigos.us/"
-		}
+		},
+        {
+            "name": "Alexander Kochetov",
+            "email": "creocoder@gmail.com"
+        }
 	],
 	"minimum-stability": "dev",
 	"require": {
 		"yiisoft/yii2": "*",
-		"brianreavis/selectize.js": "*"
+		"2amigos/selectize.js": "*"
 	},
 	"autoload": {
 		"psr-4": {
