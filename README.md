@@ -1,5 +1,7 @@
 Selectize.js widget for Yii2
-==============================
+============================
+
+[![Latest Stable Version](https://poser.pugx.org/2amigos/yii2-selectize-widget/v/stable.svg)](https://packagist.org/packages/2amigos/yii2-selectize-widget) [![Total Downloads](https://poser.pugx.org/2amigos/yii2-selectize-widget/downloads.svg)](https://packagist.org/packages/2amigos/yii2-selectize-widget) [![Latest Unstable Version](https://poser.pugx.org/2amigos/yii2-selectize-widget/v/unstable.svg)](https://packagist.org/packages/2amigos/yii2-selectize-widget) [![License](https://poser.pugx.org/2amigos/yii2-ckeditor-widget/license.svg)](https://packagist.org/packages/2amigos/yii2-selectize-widget)
 
 Renders a [Selectize.js plugin](http://brianreavis.github.io/selectize.js/) widget.
 
