@@ -15,7 +15,7 @@ use yii\web\AssetBundle;
  */
 class SelectizeLegacyAsset extends AssetBundle
 {
-	public $sourcePath = '@vendor/2amigos/yii2-selectize-widget/assets';
+	public $sourcePath = '@bower/selectize/dist';
 
 	public $css = [
 		'css/selectize.legacy.css',
