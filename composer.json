@@ -19,7 +19,7 @@
 	"minimum-stability": "dev",
 	"require": {
 		"yiisoft/yii2": "*",
-		"bower-asset/selectize": "0.11.1"
+		"bower-asset/selectize": "0.10.1"
 	},
 	"autoload": {
 		"psr-4": {
