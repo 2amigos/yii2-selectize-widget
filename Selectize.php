@@ -79,7 +79,7 @@ class Selectize extends InputWidget
 
 		$id = $this->options['id'];
 
-		if ($this->url !== null) {
+		if ($this->url !== null && $this->clientOptions['load'] === null) {
 			$url = Url::to($this->url);
 			$this->clientOptions['load'] = new JsExpression("
 function (query, callback) {
