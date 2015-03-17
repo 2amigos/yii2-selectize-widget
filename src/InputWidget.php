@@ -56,27 +56,7 @@ class InputWidget extends \yii\widgets\InputWidget
 
         if ($this->loadUrl !== null) {
             $url = Url::to($this->loadUrl);
-            $this->clientOptions['load'] = new JsExpression(<<<JS
-function(query, callback) {
-	if (!query.length) {
-	    return callback();
-    }
-
-	$.getJSON(
-	    '$url',
-	    {
-	        query: encodeURIComponent(query)
-	    },
-	    function(data) {
-	        callback(data);
-	    }
-    )
-	.fail(function() {
-	    callback();
-    });
-}
-JS
-            );
+            $this->clientOptions['load'] = new JsExpression("function(n,e){return n.length?void $.getJSON('$url',{query:encodeURIComponent(n)},function(n){e(n)}).fail(function(){e()}):e()};");
         }
 
         $options = Json::encode($this->clientOptions);
