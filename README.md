@@ -7,7 +7,7 @@
 [![Quality Score](https://img.shields.io/scrutinizer/g/2amigos/yii2-selectize-widget.svg?style=flat-square)](https://scrutinizer-ci.com/g/2amigos/yii2-selectize-widget)
 [![Total Downloads](https://img.shields.io/packagist/dt/2amigos/yii2-selectize-widget.svg?style=flat-square)](https://packagist.org/packages/2amigos/yii2-selectize-widget)
 
-[Selectize](http://brianreavis.github.io/selectize.js/) is an extensible [jQuery](http://jquery.com/)-based custom &lt;select&gt; UI control. It's useful for tagging, contact lists, country selectors, and so on. It clocks in at around ~7kb (gzipped). The goal is to provide a solid & usable experience with a clean and powerful API.
+[Selectize](http://brianreavis.github.io/selectize.js/) is an extensible jQuery-based custom &lt;select&gt; UI control. It's useful for tagging, contact lists, country selectors, and so on. It clocks in at around ~7kb (gzipped). The goal is to provide a solid & usable experience with a clean and powerful API.
 
 ## Installation
 
@@ -16,20 +16,52 @@ The preferred way to install this extension is through [composer](http://getcomp
 Either run
 
 ```bash
-$ composer require 2amigos/yii2-selectize-widget:0.2.*
+$ composer require 2amigos/yii2-selectize-widget:~1.0
 ```
 
 or add
 
 ```
-"2amigos/yii2-selectize-widget": "0.2.*"
+"2amigos/yii2-selectize-widget": "~1.0"
 ```
 
 to the `require` section of your `composer.json` file.
 
 ## Usage
 
-TBD.
+Selectize has lots of configuration options. For further information, please check the Selectize plugin [website](http://brianreavis.github.io/selectize.js/).
+
+### Text input widget
+
+To use text input widget add the following to the view
+
+```php
+use dosamigos\selectize\SelectizeTextInput;
+
+echo SelectizeTextInput::widget([
+    'name' => 'tags',
+    'value' => 'love, this, game',
+    'clientOptions' => [
+        // ...
+    ],
+]);
+```
+
+### Dropdown list widget
+
+To use dropdown list widget add the following to the view
+
+```php
+use dosamigos\selectize\SelectizeDropDownList;
+
+echo SelectizeDropDownList::widget([
+    'name' => 'tags',
+    'value' => ['love', 'this', 'game'],
+    'clientOptions' => [
+        // ...
+    ],
+]);
+```
 
 ## Testing
 
