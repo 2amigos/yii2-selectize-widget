@@ -11,18 +11,18 @@ use tests\models\Post;
 use Yii;
 
 /**
- * SelectizeDropDownListTest
+ * SelectizeTextInputTest
  */
-class SelectizeDropDownListTest extends \PHPUnit_Framework_TestCase
+class SelectizeTextInputTest extends \PHPUnit_Framework_TestCase
 {
     public function testWidget()
     {
         $model = new Post();
         $view = Yii::$app->getView();
-        $content = $view->render('//selectize-drop-down-list', ['model' => $model]);
+        $content = $view->render('//selectize-text-input', ['model' => $model]);
         $actual = $view->render('//layouts/main', ['content' => $content]);
-        file_put_contents(__DIR__ . '/data/test-selectize-drop-down-list.bin', $actual);
-        $expected = file_get_contents(__DIR__ . '/data/test-selectize-drop-down-list.bin');
+        file_put_contents(__DIR__ . '/data/test-selectize-text-input.bin', $actual);
+        $expected = file_get_contents(__DIR__ . '/data/test-selectize-text-input.bin');
         $this->assertEquals($expected, $actual);
     }
 }

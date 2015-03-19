@@ -14,8 +14,5 @@ use yii\base\Model;
  */
 class Post extends Model
 {
-    /**
-     * @var string
-     */
     public $tags;
 }
