@@ -1,0 +1,19 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<link href="/0/css/selectize.bootstrap3.css" rel="stylesheet"></head>
+<body>
+
+<input type="text" id="post-tags" name="Post[tags]">
+<input type="text" id="w3" name="tags">
+<input type="text" id="custom-id" name="tags">
+<input type="text" id="w4" name="tags"><script src="/1/jquery.js"></script>
+<script src="/0/js/standalone/selectize.js"></script>
+<script type="text/javascript">jQuery(document).ready(function () {
+jQuery('#post-tags').selectize(null);
+jQuery('#w3').selectize(null);
+jQuery('#custom-id').selectize(null);
+jQuery('#w4').selectize({"load":function (query, callback) { if (!query.length) return callback(); $.getJSON('http://example.com/data.json', { query: encodeURIComponent(query) }, function (data) { callback(data); }).fail(function () { callback(); }); }});
+});</script></body>
+</html>

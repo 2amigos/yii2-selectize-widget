@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<link href="/0/css/selectize.bootstrap3.css" rel="stylesheet"></head>
+<body>
+
+<select id="post-tags" name="Post[tags]">
+
+</select>
+<select id="w0" name="tags">
+
+</select>
+<select id="custom-id" name="tags">
+
+</select>
+<select id="w1" name="tags">
+<option value="0">love</option>
+<option value="1">this</option>
+<option value="2">game</option>
+</select>
+<select id="w2" name="tags">
+<option value="0">love</option>
+<option value="1">this</option>
+<option value="2">game</option>
+</select><script src="/1/jquery.js"></script>
+<script src="/0/js/standalone/selectize.js"></script>
+<script type="text/javascript">jQuery(document).ready(function () {
+jQuery('#post-tags').selectize(null);
+jQuery('#w0').selectize(null);
+jQuery('#custom-id').selectize(null);
+jQuery('#w1').selectize(null);
+jQuery('#w2').selectize({"load":function (query, callback) { if (!query.length) return callback(); $.getJSON('http://example.com/data.json', { query: encodeURIComponent(query) }, function (data) { callback(data); }).fail(function () { callback(); }); }});
+});</script></body>
+</html>
