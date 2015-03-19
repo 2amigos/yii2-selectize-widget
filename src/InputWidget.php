@@ -30,18 +30,6 @@ class InputWidget extends \yii\widgets\InputWidget
     /**
      * @inheritdoc
      */
-    public function init()
-    {
-        parent::init();
-
-        if (!isset($this->options['id'])) {
-            $this->options['id'] = $this->getId();
-        }
-    }
-
-    /**
-     * @inheritdoc
-     */
     public function run()
     {
         $this->registerClientScript();
