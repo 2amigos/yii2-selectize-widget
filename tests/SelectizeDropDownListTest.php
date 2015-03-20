@@ -7,7 +7,7 @@
 
 namespace tests;
 
-use tests\models\Post;
+use tests\models\Model;
 use Yii;
 
 /**
@@ -17,7 +17,7 @@ class SelectizeDropDownListTest extends \PHPUnit_Framework_TestCase
 {
     public function testWidget()
     {
-        $model = new Post();
+        $model = new Model();
         $view = Yii::$app->getView();
         $content = $view->render('//selectize-drop-down-list', ['model' => $model]);
         $actual = $view->render('//layouts/main', ['content' => $content]);

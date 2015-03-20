@@ -7,12 +7,10 @@
 
 namespace tests\models;
 
-use yii\base\Model;
-
 /**
- * Post
+ * Model
  */
-class Post extends Model
+class Model extends \yii\base\Model
 {
-    public $tags;
+    public $test;
 }

@@ -3,24 +3,24 @@
 use dosamigos\selectize\SelectizeTextInput;
 
 /* @var $this yii\web\View */
-/* @var $model tests\models\Post */
+/* @var $model tests\models\Model */
 ?>
 
 <?= SelectizeTextInput::widget([
     'model' => $model,
-    'attribute' => 'tags',
+    'attribute' => 'test',
 ]) ?>
 
 <?= SelectizeTextInput::widget([
-    'name' => 'tags',
+    'name' => 'test',
 ]) ?>
 
 <?= SelectizeTextInput::widget([
     'id' => 'custom-id',
-    'name' => 'tags',
+    'name' => 'test',
 ]) ?>
 
 <?= SelectizeTextInput::widget([
-    'name' => 'tags',
+    'name' => 'test',
     'loadUrl' => 'http://example.com/data.json',
 ]) ?>

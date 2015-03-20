@@ -3,30 +3,30 @@
 use dosamigos\selectize\SelectizeDropDownList;
 
 /* @var $this \yii\web\View */
-/* @var $model tests\models\Post */
+/* @var $model tests\models\Model */
 ?>
 
 <?= SelectizeDropDownList::widget([
     'model' => $model,
-    'attribute' => 'tags',
+    'attribute' => 'test',
 ]) ?>
 
 <?= SelectizeDropDownList::widget([
-    'name' => 'tags',
+    'name' => 'test',
 ]) ?>
 
 <?= SelectizeDropDownList::widget([
     'id' => 'custom-id',
-    'name' => 'tags',
+    'name' => 'test',
 ]) ?>
 
 <?= SelectizeDropDownList::widget([
-    'name' => 'tags',
+    'name' => 'test',
     'items' => ['love', 'this', 'game'],
 ]) ?>
 
 <?= SelectizeDropDownList::widget([
-    'name' => 'tags',
+    'name' => 'test',
     'items' => ['love', 'this', 'game'],
     'loadUrl' => 'http://example.com/data.json',
 ]) ?>

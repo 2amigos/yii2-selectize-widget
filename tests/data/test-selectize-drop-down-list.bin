@@ -5,28 +5,28 @@
 <link href="/0/css/selectize.bootstrap3.css" rel="stylesheet"></head>
 <body>
 
-<select id="post-tags" name="Post[tags]">
+<select id="model-test" name="Model[test]">
 
 </select>
-<select id="w0" name="tags">
+<select id="w0" name="test">
 
 </select>
-<select id="custom-id" name="tags">
+<select id="custom-id" name="test">
 
 </select>
-<select id="w1" name="tags">
+<select id="w1" name="test">
 <option value="0">love</option>
 <option value="1">this</option>
 <option value="2">game</option>
 </select>
-<select id="w2" name="tags">
+<select id="w2" name="test">
 <option value="0">love</option>
 <option value="1">this</option>
 <option value="2">game</option>
 </select><script src="/1/jquery.js"></script>
 <script src="/0/js/standalone/selectize.js"></script>
 <script type="text/javascript">jQuery(document).ready(function () {
-jQuery('#post-tags').selectize(null);
+jQuery('#model-test').selectize(null);
 jQuery('#w0').selectize(null);
 jQuery('#custom-id').selectize(null);
 jQuery('#w1').selectize(null);
