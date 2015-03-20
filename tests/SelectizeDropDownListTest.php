@@ -21,7 +21,6 @@ class SelectizeDropDownListTest extends \PHPUnit_Framework_TestCase
         $view = Yii::$app->getView();
         $content = $view->render('//selectize-drop-down-list', ['model' => $model]);
         $actual = $view->render('//layouts/main', ['content' => $content]);
-        file_put_contents(__DIR__ . '/data/test-selectize-drop-down-list.bin', $actual);
         $expected = file_get_contents(__DIR__ . '/data/test-selectize-drop-down-list.bin');
         $this->assertEquals($expected, $actual);
     }

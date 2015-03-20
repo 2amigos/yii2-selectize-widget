@@ -21,7 +21,6 @@ class SelectizeTextInputTest extends \PHPUnit_Framework_TestCase
         $view = Yii::$app->getView();
         $content = $view->render('//selectize-text-input', ['model' => $model]);
         $actual = $view->render('//layouts/main', ['content' => $content]);
-        file_put_contents(__DIR__ . '/data/test-selectize-text-input.bin', $actual);
         $expected = file_get_contents(__DIR__ . '/data/test-selectize-text-input.bin');
         $this->assertEquals($expected, $actual);
     }
