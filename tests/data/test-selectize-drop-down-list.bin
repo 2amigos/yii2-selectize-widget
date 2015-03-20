@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link href="/1/css/bootstrap.css" rel="stylesheet">
 <link href="/0/css/selectize.bootstrap3.css" rel="stylesheet"></head>
 <body>
 
@@ -15,15 +16,15 @@
 
 </select>
 <select id="w1" name="test">
-<option value="0">love</option>
-<option value="1">this</option>
-<option value="2">game</option>
+<option value="0">item1</option>
+<option value="1">item2</option>
+<option value="2">item3</option>
 </select>
 <select id="w2" name="test">
-<option value="0">love</option>
-<option value="1">this</option>
-<option value="2">game</option>
-</select><script src="/1/jquery.js"></script>
+<option value="0">item1</option>
+<option value="1">item2</option>
+<option value="2">item3</option>
+</select><script src="/2/jquery.js"></script>
 <script src="/0/js/standalone/selectize.js"></script>
 <script type="text/javascript">jQuery(document).ready(function () {
 jQuery('#model-test').selectize(null);

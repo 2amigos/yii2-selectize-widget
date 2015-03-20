@@ -22,11 +22,11 @@ use dosamigos\selectize\SelectizeDropDownList;
 
 <?= SelectizeDropDownList::widget([
     'name' => 'test',
-    'items' => ['love', 'this', 'game'],
+    'items' => ['item1', 'item2', 'item3'],
 ]) ?>
 
 <?= SelectizeDropDownList::widget([
     'name' => 'test',
-    'items' => ['love', 'this', 'game'],
+    'items' => ['item1', 'item2', 'item3'],
     'loadUrl' => 'http://example.com/data.json',
 ]) ?>
