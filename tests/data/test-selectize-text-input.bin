@@ -15,6 +15,6 @@
 jQuery('#model-test').selectize(null);
 jQuery('#w3').selectize(null);
 jQuery('#custom-id').selectize(null);
-jQuery('#w4').selectize({"load":function (query, callback) { if (!query.length) return callback(); $.getJSON('http://example.com/data.json', { query: encodeURIComponent(query) }, function (data) { callback(data); }).fail(function () { callback(); }); }});
+jQuery('#w4').selectize({"load":function (query, callback) { if (!query.length) return callback(); $.getJSON('http://example.com/data.json', { query: query }, function (data) { callback(data); }).fail(function () { callback(); }); }});
 });</script></body>
 </html>
