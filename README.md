@@ -56,7 +56,7 @@ use dosamigos\selectize\SelectizeDropDownList;
 
 echo SelectizeDropDownList::widget([
     'name' => 'tags',
-    'value' => ['love', 'this', 'game'],
+    'items' => ['love', 'this', 'game'],
     'clientOptions' => [
         // ...
     ],
