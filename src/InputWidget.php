@@ -14,7 +14,7 @@ use yii\web\JsExpression;
 /**
  * InputWidget
  *
- * @author Alexander Kochetov <creocoder@gmail.com>
+ * @author 2amigos.us <hola@2amigos.us>
  */
 class InputWidget extends \yii\widgets\InputWidget
 {
@@ -22,6 +22,12 @@ class InputWidget extends \yii\widgets\InputWidget
      * @var string
      */
     public $loadUrl;
+    
+    /**
+     * @var string the parameter name
+     */
+    public $queryParam = 'query'; 
+
     /**
      * @var array
      */
@@ -44,7 +50,7 @@ class InputWidget extends \yii\widgets\InputWidget
 
         if ($this->loadUrl !== null) {
             $url = Url::to($this->loadUrl);
-            $this->clientOptions['load'] = new JsExpression("function (query, callback) { if (!query.length) return callback(); $.getJSON('$url', { query: query }, function (data) { callback(data); }).fail(function () { callback(); }); }");
+            $this->clientOptions['load'] = new JsExpression("function (query, callback) { if (!query.length) return callback(); $.getJSON('$url', { {$this->queryParam}: query }, function (data) { callback(data); }).fail(function () { callback(); }); }");
         }
 
         $options = Json::encode($this->clientOptions);
