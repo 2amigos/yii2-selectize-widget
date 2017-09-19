@@ -35,14 +35,12 @@
             "dosamigos\\selectize\\": "src"
         }
     },
-    "config": {
-        "fxp-asset": {
-            "installer-paths": {
-                "npm-asset-library": "vendor/npm",
-                "bower-asset-library": "vendor/bower"
-            }
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
         }
-    },
+    ],
     "extra": {
         "branch-alias": {
             "dev-master": "1.0-dev"

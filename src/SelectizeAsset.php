@@ -17,6 +17,7 @@ use yii\web\AssetBundle;
 class SelectizeAsset extends AssetBundle
 {
     public $sourcePath = '@bower/selectize/dist';
+
     public $css = [
         'css/selectize.bootstrap3.css',
     ];
