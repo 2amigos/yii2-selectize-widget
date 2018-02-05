@@ -29,7 +29,7 @@ to the `require` section of your `composer.json` file.
 
 ## Usage
 
-Selectize has lots of configuration options. For further information, please check the Selectize plugin [website](http://brianreavis.github.io/selectize.js/).
+Selectize has lots of configuration options. For further information, please check the Selectize plugin [website](http://selectize.github.io/selectize.js/).
 
 ### Text input widget
 
