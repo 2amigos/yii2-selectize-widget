@@ -63,6 +63,15 @@ echo SelectizeDropDownList::widget([
 ]);
 ```
 
+## Configuration
+SelectizeDropDownList extends from [InputWidget](http://www.yiiframework.com/doc-2.0/yii-widgets-inputwidget.html), but have additional properties that can be configured.
+
+|Property|Type|Default|Description
+|-|-|-|-|
+|`loadUrl`|string&#124;array|null|Optional. This parameter will be passed to [Url::to](http://www.yiiframework.com/doc-2.0/guide-runtime-routing.html). If set, selectize plugin will be configured to send ajax requests to the defined url to retrieve options. Url must return a valid JSON response.  |
+|`queryParam`|string|'query'|The name of the request parameter to use on ajax requests|
+|`clientOptions`|array|null|Configuration of selectize plugin. This configuration is individual for each selectize instance.|
+
 ## Testing
 
 ```bash
