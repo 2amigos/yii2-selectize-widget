@@ -63,6 +63,49 @@ echo SelectizeDropDownList::widget([
 ]);
 ```
 
+### Dropdown list with Remote Loading
+
+To use dropdown list with remote loading, just add `loadUrl` instead of items field and then configure it with correct URL
+Then create controller action returning the JSON that matches your fields declaration in the Widget.
+
+```php
+use dosamigos\selectize\SelectizeDropDownList;
+
+<?= $form->field($model, 'people')->widget(SelectizeDropDownList::className(), [
+    'loadUrl' => ['/profiles/all'],
+    'options' => [
+        'placeholder' => Yii::t('app', 'Search by Full Name')
+    ],
+    'clientOptions' => [
+        'valueField' => 'id',           
+        'labelField' => 'name',
+        'searchField' => ['name'],
+    ],
+]) ?> 
+```
+
+And in the controller `ProfilesController` and `actionAll`
+
+
+```php
+public function actionAll($query) 
+{
+    Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+    
+    $models = User::find()
+        ->filterWhere(['ILIKE', 'name', $query]) 
+        ->asArray()
+        ->all();
+
+    $items = [];
+
+    foreach ($models as $model) 
+        $items[] = ['id' => $model['id'], 'name' => "{$model['name']}"];
+
+    return $items;
+}
+```
+
 ## Configuration
 SelectizeDropDownList extends from [InputWidget](http://www.yiiframework.com/doc-2.0/yii-widgets-inputwidget.html), but have additional properties that can be configured.
 
